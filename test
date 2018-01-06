@@ -1,0 +1,107 @@
+#include <stdio.h>
+
+int
+main(void)
+{
+
+  int Line; //initializing all the variables that we are going to use in the progrming
+  int Width;
+  int Space; //Space is the variable that I use instead of the value of half of the lines
+
+
+
+  printf ("Number of lines:\n");
+  scanf ("%d", &Line);
+
+  if (Line % 2 == 0)  /* The input should be even becouse of our shape so if the input is 
+                       even then the process starts*/
+    {
+      printf ("Width between left and right figure?\n");
+      scanf ("%d", &Width); //It gets the number of lines between the stars
+      Space = Line / 2; /*Space is the number of lines from first line to the first midle line ( Wwe have even number lines
+                             so we will have two midle lines) */
+
+      int i;
+      int j;
+
+          for (i = 0; i < Line; i++)// For loops starts here for printing spaces and stars
+        {
+          for (j = 0; j < Space; j++)  /* The process of printig stars is, we have a for loop which
+                                        starts i from 0. The program will print space if the i value is 
+                                         less than the number of half of the culomns and if the  
+                                           diffrence of i and space is more than J*/
+            {
+              if (i < Space)
+                {
+                  if (j < Space - 1 - i) 
+                    {
+                      printf (" "); 
+                    }
+                  else
+                    {
+                     printf ("*");
+                    }
+                }
+              else
+                {
+                  if (j < i - Space)
+                    {
+                      printf (" ");
+                    }
+                  else
+                    {
+                      printf ("*");
+                    }
+                }
+            }
+
+          for (j = 0; j < Width; j++)
+            {
+              if (i == Space || i == Space - 1) /* When the i equal to the number of half of the columnns
+                                                it starts to print the lines between to stars in the midle*/
+                {
+                  printf ("-");
+                }
+            else
+                {
+                  printf (" ");
+                }
+            }
+          for (j = 0; j < Space; j++)
+            {
+              if (i < Space) 
+                {
+                  if (j <= i) /* The process is like the top part of the shape but the
+                                spaces will increase as the i is getting biger*/
+
+                    {
+                      printf ("*");
+                    }
+                  else
+                    {
+                      printf (" ");
+                    }
+                }
+              else
+                {
+                  if ((i - Space) + j <= Space - 1) 
+                  {
+                      printf ("*");
+                    }
+                  else
+                    {
+                      printf (" ");
+                    }
+                }
+        }
+          printf ("\n");
+        }
+      printf ("\n");
+        }
+        else {
+        printf("Invalid input - number of lines must be even\n"); // When the input is odd the program should print it is invalid input
+}
+
+return 0;
+}
+
